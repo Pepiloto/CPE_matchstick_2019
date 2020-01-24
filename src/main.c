@@ -16,7 +16,8 @@ int main(int ac, char **av)
 
     error = error_handling(ac, av);
     game.nb_lines = my_getnbr(av[1]);
-    create_board_game(&game);
+    if (create_board_game(&game) == 84)
+        return (84);
     free_them_all(&game);
     return (0);
 }

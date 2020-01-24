@@ -17,6 +17,7 @@ LDFLAGS = -L lib/my -lmy
 ######### SOURCES #########
 SRC =	src/error.c				\
 		src/create_board_game.c	\
+		src/free_them_all.c		\
 		src/main.c
 
 OBJ = $(SRC:.c=.o)

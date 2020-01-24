@@ -11,10 +11,12 @@
 
 int main(int ac, char **av)
 {
-    map_t map = {0};
+    game_t game = {0};
     int error = 0;
 
-    map.nb_cols = 0;
     error = error_handling(ac, av);
+    game.nb_lines = my_getnbr(av[1]);
+    create_board_game(&game);
+    free_them_all(&game);
     return (0);
 }

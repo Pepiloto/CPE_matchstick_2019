@@ -8,11 +8,12 @@
 #ifndef MAP_H_
 #define MAP_H_
 
-typedef struct map{
+typedef struct game{
     char **map;
     unsigned int nb_lines;
-    unsigned int nb_cols;
     unsigned int nb_matches;
-}map_t;
+    unsigned int max_remove;
+    unsigned int nb_stars;
+}game_t;
 
 #endif /* !MAP_H_ */

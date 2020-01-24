@@ -24,7 +24,7 @@ static inline int malloc_cols(game_t *game)
 
 static inline int malloc_lines(game_t *game, int i, int nb_stars)
 {
-    game->map[i] = malloc(sizeof(char) * nb_stars);
+    game->map[i] = malloc(sizeof(char) * nb_stars + 1);
     if (!game->map[i]) {
         my_puterrstr("Problem while allocating memory\n");
         return (84);

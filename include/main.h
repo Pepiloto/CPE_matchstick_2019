@@ -9,7 +9,7 @@
 #define MAIN_H_
 
 int error_handling(int ac, char **av);
-void create_board_game(game_t *game);
+int create_board_game(game_t *game);
 void free_them_all(game_t *game);
 
 #endif /* !MAIN_H_ */

@@ -12,9 +12,9 @@
 int main(int ac, char **av)
 {
     game_t game = {0};
-    int error = 0;
 
-    error = error_handling(ac, av);
+    if (error_handling(ac, av) == 84)
+        return (84);
     game.nb_lines = my_getnbr(av[1]);
     if (create_board_game(&game) == 84)
         return (84);

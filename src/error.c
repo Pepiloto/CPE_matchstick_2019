@@ -25,7 +25,7 @@ int bad_argument(char **av)
 int error_handling(int ac, char **av)
 {
     if (ac > 3) {
-        my_puterrstr("./matchstick : bad arguments : more than 3 given but 2 i"
+        my_puterrstr("./matchstick : bad arguments : more than 2 given but 2 i"
                     "s required\n");
         return (84);
     }

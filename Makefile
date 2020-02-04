@@ -18,6 +18,9 @@ LDFLAGS = -L lib/my -lmy
 SRC =	src/error.c				\
 		src/create_board_game.c	\
 		src/free_them_all.c		\
+		src/get_next_line.c		\
+		src/remove_match.c		\
+		src/my_atoi.c			\
 		src/main.c
 
 OBJ = $(SRC:.c=.o)

@@ -14,6 +14,8 @@ typedef struct game{
     unsigned int nb_matches;
     unsigned int max_remove;
     unsigned int nb_stars;
+    char *line;
+    char *matches;
 }game_t;
 
 #endif /* !MAP_H_ */

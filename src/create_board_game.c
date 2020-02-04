@@ -65,6 +65,5 @@ int create_board_game(game_t *game)
     first_and_last_line(game);
     stars(game);
     sticks_and_spaces(game, nb_spaces);
-    print_map(game);
     return (0);
 }

@@ -11,7 +11,7 @@ int my_getnbr(char const *str)
 {
     unsigned int number = 0;
 
-    for (int i = 0; !(str[i] == '\0'); i++){
+    for (int i = 0; !(str[i] == '\0' || str[i] == '\n'); i++){
         if (str[i] > 47 && str[i] < 58)
             number = number * 10 + (str[i] - 48);
         if (number > 2147483647)

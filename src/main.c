@@ -24,7 +24,6 @@ int main(int ac, char **av)
         return (84);
     while (1) {
         game.line = gnl_lines();
-        printf("%s", game.line);
         game.matches = gnl_matches();
         remove_matches(&game, game.line, game.matches, empty_lines);
     }

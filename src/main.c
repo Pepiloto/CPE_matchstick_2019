@@ -7,13 +7,12 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "my.h"
-#include "map.h"
 #include "main.h"
 
 int main(int ac, char **av)
 {
     game_t game = {0};
+    display_turn_t boolean = {0};
     int *empty_lines = {0};
 
     if (error_handling(ac, av) == 84)
@@ -23,7 +22,7 @@ int main(int ac, char **av)
     if (create_board_game(&game) == 84)
         return (84);
     while (1)
-        gameloop(&game, empty_lines);
+        gameloop(&game, empty_lines, &boolean);
     free_them_all(&game);
     return (0);
 }

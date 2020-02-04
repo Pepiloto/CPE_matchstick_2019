@@ -6,6 +6,9 @@
 */
 
 #include <stdlib.h>
+#include "my.h"
+#include "map.h"
+#include "display_turn.h"
 #ifndef MAIN_H_
 #define MAIN_H_
 
@@ -31,6 +34,6 @@ static inline int *allocating_int(int nb_lines, int *empty_lines)
 }
 char *gnl_lines(void);
 char *gnl_matches(void);
-void gameloop(game_t *game, int *empty_lines);
+display_turn_t gameloop(game_t *game, int *empty_lines, display_turn_t *boolean);
 
 #endif /* !MAIN_H_ */

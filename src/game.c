@@ -7,7 +7,6 @@
 
 #include "map.h"
 #include "game.h"
-#include "my.h"
 
 static int check_stick(char *line, int nb_stick, char *str)
 {
@@ -46,17 +45,25 @@ static int check_line(unsigned int nb_lines, int line, int *empty_line)
     return (0);
 }
 
-void gameloop(game_t *game, int *empty_lines)
+display_turn_t *gameloop(game_t *game, int *empty_lines, display_turn_t *boolean)
 {
+    if (boolean->display == 0)
+        print_map(game);
     my_putstr("Line: ");
     game->line = gnl_lines();
         if (check_line(game->nb_lines - 2, my_atoi(game->line),
             empty_lines) == 84) {
             my_puterrstr("Error: this line is out of range\n");
-            return;
+            boolean->display++;
+            return (boolean);
         }
     my_putstr("Matches: ");
     game->matches = gnl_matches();
-        if (check_stick(game->map[my_atoi(game->line)], my_atoi(game->matches), game->matches) == 84)
-            return;
+        if (check_stick(game->map[my_atoi(game->line)], my_atoi(game->matches), game->matches) == 84) {
+            boolean->display++;
+            return (boolean);
+        }
+    boolean->display = 0;
+    boolean->turn++;
+    return (boolean);
 }

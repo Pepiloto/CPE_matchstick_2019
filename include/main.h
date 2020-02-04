@@ -31,7 +31,6 @@ static inline int *allocating_int(int nb_lines, int *empty_lines)
 }
 char *gnl_lines(void);
 char *gnl_matches(void);
-void remove_matches(game_t *game, char *line_, char *nb_stick_,
-                    int *empty_lines);
+void gameloop(game_t *game, int *empty_lines);
 
 #endif /* !MAIN_H_ */

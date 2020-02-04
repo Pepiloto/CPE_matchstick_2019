@@ -22,11 +22,8 @@ int main(int ac, char **av)
     empty_lines = allocating_int(game.nb_lines, empty_lines);
     if (create_board_game(&game) == 84)
         return (84);
-    while (1) {
-        game.line = gnl_lines();
-        game.matches = gnl_matches();
-        remove_matches(&game, game.line, game.matches, empty_lines);
-    }
+    while (1)
+        gameloop(&game, empty_lines);
     free_them_all(&game);
     return (0);
 }

@@ -21,6 +21,7 @@ SRC =	src/error.c				\
 		src/get_next_line.c		\
 		src/remove_match.c		\
 		src/my_atoi.c			\
+		src/game.c				\
 		src/main.c
 
 OBJ = $(SRC:.c=.o)

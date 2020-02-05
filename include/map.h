@@ -16,6 +16,7 @@ typedef struct game{
     unsigned int nb_stars;
     char *line;
     char *matches;
+    int ending;
 }game_t;
 
 #endif /* !MAP_H_ */

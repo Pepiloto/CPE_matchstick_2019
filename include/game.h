@@ -36,5 +36,6 @@ static inline void put_error(int max)
     my_put_nbr(max);
     my_puterrstr(" matches per turn\n");
 }
+int win(game_t *game, display_turn_t *boolean);
 
 #endif /* !GAME_H_ */

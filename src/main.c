@@ -11,9 +11,10 @@
 
 int main(int ac, char **av)
 {
-    game_t game = {0};
-    display_turn_t boolean = {0};
+    game_t game;
+    display_turn_t boolean;
 
+    init_struct(&game, &boolean);
     if (error_handling(ac, av) == 84)
         return (84);
     game.nb_lines = my_getnbr(av[1]) + 2;
@@ -24,7 +25,7 @@ int main(int ac, char **av)
         if (boolean.turn == 0)
             player_gameloop(&game, &boolean);
         else
-            ai_gameloop(&game, &boolean);
+            player_gameloop(&game, &boolean);
     }
     free_them_all(&game);
     return (0);

@@ -13,21 +13,21 @@ static int check_stick(char *line, int nb_stick, char *str, int max)
 {
     int stick = 0;
 
-    if (nb_stick < 0) {
-        my_puterrstr("Error: you have to remove at least one match\n");
+    if (nb_stick == 0) {
+        my_putstr("Error: you have to remove at least one match\n");
         return (84);
     }
     if (nb_stick > max) {
         put_error(max);
         return (84);
     }
-    if (nb_stick == 0 || my_str_isnum(str) == 1) {
-        my_puterrstr("Error: invalid input (positive number expected)\n");
+    if (nb_stick < 0 || my_str_isnum(str) == 1) {
+        my_putstr("Error: invalid input (positive number expected)\n");
         return (84);
     }
     stick = count_stick(line, stick);
     if (stick < nb_stick) {
-        my_puterrstr("Error: not enough matches on this line\n");
+        my_putstr("Error: not enough matches on this line\n");
         return (84);
     }
     return (0);
@@ -38,11 +38,11 @@ static int check_line(unsigned int nb_lines, int line)
     int lines = nb_lines;
 
     if (line <= 0) {
-        my_puterrstr("Error: this line is out of range\n");
+        my_putstr("Error: this line is out of range\n");
         return (84);
     }
     if (lines < line) {
-        my_puterrstr("Error: this line is out of range\n");
+        my_putstr("Error: this line is out of range\n");
         return (84);
     }
     return (0);
@@ -69,5 +69,6 @@ void player_gameloop(game_t *game, display_turn_t *boolean)
         }
     remove_matches(game, boolean);
     boolean->display = 0;
+    win(game, boolean);
     return;
 }

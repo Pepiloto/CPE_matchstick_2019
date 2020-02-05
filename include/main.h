@@ -17,7 +17,7 @@ int create_board_game(game_t *game);
 void free_them_all(game_t *game);
 char *gnl_lines(void);
 char *gnl_matches(void);
-void player_gameloop(game_t *game, display_turn_t *boolean);
+int player_gameloop(game_t *game, display_turn_t *boolean);
 void init_struct(game_t *game, display_turn_t *boolean);
 
 #endif /* !MAIN_H_ */

@@ -23,9 +23,9 @@ int main(int ac, char **av)
         return (84);
     while (1) {
         if (boolean.turn == 0)
-            player_gameloop(&game, &boolean);
+            game.victory = player_gameloop(&game, &boolean);
         else
-            player_gameloop(&game, &boolean);
+            game.victory = player_gameloop(&game, &boolean);
     }
     free_them_all(&game);
     return (0);

@@ -19,6 +19,7 @@ void init_struct(game_t *game, display_turn_t *boolean)
     game->line = NULL;
     game->matches = NULL;
     game->ending = 0;
+    game->victory = 0;
     boolean->display = 0;
     boolean->turn = 0;
 }

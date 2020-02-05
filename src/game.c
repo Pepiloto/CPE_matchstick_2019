@@ -48,7 +48,7 @@ static int check_line(unsigned int nb_lines, int line)
     return (0);
 }
 
-void player_gameloop(game_t *game, display_turn_t *boolean)
+int player_gameloop(game_t *game, display_turn_t *boolean)
 {
     if (boolean->display == 0) {
         print_map(game);
@@ -58,17 +58,16 @@ void player_gameloop(game_t *game, display_turn_t *boolean)
     game->line = gnl_lines();
         if (check_line(game->nb_lines - 2, my_atoi(game->line)) == 84) {
             boolean->display = 1;
-            return;
+            return (84);
         }
     my_putstr("Matches: ");
     game->matches = gnl_matches();
         if (check_stick(game->map[my_atoi(game->line)], my_atoi(game->matches),
                         game->matches, game->max_remove) == 84) {
             boolean->display = 1;
-            return;
+            return (84);
         }
     remove_matches(game, boolean);
     boolean->display = 0;
-    win(game, boolean);
-    return;
+    return (win(game, boolean));
 }

@@ -17,6 +17,7 @@ typedef struct game{
     char *line;
     char *matches;
     int ending;
+    int victory;
 }game_t;
 
 #endif /* !MAP_H_ */

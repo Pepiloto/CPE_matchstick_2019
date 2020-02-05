@@ -24,8 +24,6 @@ int win(game_t *game, display_turn_t *boolean)
         my_putstr("I lost... snif... but I'll get you next time!!\n");
         return (2);
     }
-    else {
-        my_putstr("No win for now\n");
+    else
         return (3);
-    }
 }

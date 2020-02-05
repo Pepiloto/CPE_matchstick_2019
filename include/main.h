@@ -34,6 +34,6 @@ static inline int *allocating_int(int nb_lines, int *empty_lines)
 }
 char *gnl_lines(void);
 char *gnl_matches(void);
-display_turn_t gameloop(game_t *game, int *empty_lines, display_turn_t *boolean);
+void player_gameloop(game_t *game, int *empty_lines, display_turn_t *boolean);
 
 #endif /* !MAIN_H_ */

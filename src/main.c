@@ -18,11 +18,16 @@ int main(int ac, char **av)
     if (error_handling(ac, av) == 84)
         return (84);
     game.nb_lines = my_getnbr(av[1]) + 2;
+    game.max_remove = my_getnbr(av[2]);
     empty_lines = allocating_int(game.nb_lines, empty_lines);
     if (create_board_game(&game) == 84)
         return (84);
-    while (1)
-        gameloop(&game, empty_lines, &boolean);
+    while (1) {
+        if (boolean.turn == 0)
+            player_gameloop(&game, empty_lines, &boolean);
+        // else
+        //     ai_gameloop(&game, empty_lines, &boolean);
+    }
     free_them_all(&game);
     return (0);
 }

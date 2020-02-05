@@ -22,5 +22,6 @@ static inline void print_map(game_t *game)
     }
     my_putchar('\n');
 }
+void remove_matches(game_t *game, display_turn_t *boolean);
 
 #endif /* !GAME_H_ */

@@ -23,5 +23,18 @@ static inline void print_map(game_t *game)
     my_putchar('\n');
 }
 void remove_matches(game_t *game, display_turn_t *boolean);
+static inline int count_stick(char *line, int stick)
+{
+    for (int i = 0; line[i]; i++)
+        if (line[i] == '|')
+            stick++;
+    return (stick);
+}
+static inline void put_error(int max)
+{
+    my_puterrstr("Error: you cannot remove more than ");
+    my_put_nbr(max);
+    my_puterrstr(" matches per turn\n");
+}
 
 #endif /* !GAME_H_ */

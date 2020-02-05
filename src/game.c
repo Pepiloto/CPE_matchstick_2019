@@ -5,6 +5,7 @@
 ** game
 */
 
+#include <stdio.h>
 #include "map.h"
 #include "game.h"
 
@@ -17,19 +18,14 @@ static int check_stick(char *line, int nb_stick, char *str, int max)
         return (84);
     }
     if (nb_stick > max) {
-        my_puterrstr("Error: you cannot remove more than ");
-        my_put_nbr(max);
-        my_puterrstr(" matches per turn\n");
+        put_error(max);
         return (84);
     }
     if (nb_stick == 0 || my_str_isnum(str) == 1) {
         my_puterrstr("Error: invalid input (positive number expected)\n");
         return (84);
     }
-    for (int i = 0; line[i]; i++) {
-        if (line[i] == '|')
-            stick++;
-    }
+    stick = count_stick(line, stick);
     if (stick < nb_stick) {
         my_puterrstr("Error: not enough matches on this line\n");
         return (84);
@@ -37,7 +33,7 @@ static int check_stick(char *line, int nb_stick, char *str, int max)
     return (0);
 }
 
-static int check_line(unsigned int nb_lines, int line, int *empty_line)
+static int check_line(unsigned int nb_lines, int line)
 {
     int lines = nb_lines;
 
@@ -45,11 +41,6 @@ static int check_line(unsigned int nb_lines, int line, int *empty_line)
         my_puterrstr("Error: this line is out of range\n");
         return (84);
     }
-    for (int i = 0; empty_line[i] != -1; i++)
-            if (empty_line[i] == line) {
-                my_puterrstr("Error: this line is out of range\n");
-                return (84);
-            }
     if (lines < line) {
         my_puterrstr("Error: this line is out of range\n");
         return (84);
@@ -57,7 +48,7 @@ static int check_line(unsigned int nb_lines, int line, int *empty_line)
     return (0);
 }
 
-void player_gameloop(game_t *game, int *empty_lines, display_turn_t *boolean)
+void player_gameloop(game_t *game, display_turn_t *boolean)
 {
     if (boolean->display == 0) {
         print_map(game);
@@ -65,8 +56,7 @@ void player_gameloop(game_t *game, int *empty_lines, display_turn_t *boolean)
     }
     my_putstr("Line: ");
     game->line = gnl_lines();
-        if (check_line(game->nb_lines - 2, my_atoi(game->line),
-            empty_lines) == 84) {
+        if (check_line(game->nb_lines - 2, my_atoi(game->line)) == 84) {
             boolean->display = 1;
             return;
         }

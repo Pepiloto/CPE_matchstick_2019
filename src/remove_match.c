@@ -14,6 +14,11 @@
 
 void remove_matches(game_t *game, display_turn_t *boolean)
 {
-    (void)game;
-    (void)boolean;
+    int line = my_atoi(game->line);
+    int stick = my_atoi(game->matches);
+    int last_stick = where_is_lstick(game->map[line]);
+
+    for (int i = stick; i > 0; i--)
+        game->map[line][last_stick - (i - 1)] = ' ';
+    changing_turn(boolean);
 }

@@ -13,16 +13,16 @@ static int check_stick(char *line, int nb_stick, char *str, int max)
 {
     int stick = 0;
 
+    if (nb_stick < 0 || my_str_isnum(str) == 0) {
+        my_putstr("Error: invalid input (positive number expected)\n");
+        return (84);
+    }
     if (nb_stick == 0) {
         my_putstr("Error: you have to remove at least one match\n");
         return (84);
     }
     if (nb_stick > max) {
         put_error(max);
-        return (84);
-    }
-    if (nb_stick < 0 || my_str_isnum(str) == 1) {
-        my_putstr("Error: invalid input (positive number expected)\n");
         return (84);
     }
     stick = count_stick(line, stick);
@@ -33,10 +33,14 @@ static int check_stick(char *line, int nb_stick, char *str, int max)
     return (0);
 }
 
-static int check_line(unsigned int nb_lines, int line)
+static int check_line(unsigned int nb_lines, int line, char *line_)
 {
     int lines = nb_lines;
 
+    if (my_str_isnum(line_) == 0) {
+        my_putstr("Error: invalid input (positive number expected)\n");
+        return (84);
+    }
     if (line <= 0) {
         my_putstr("Error: this line is out of range\n");
         return (84);
@@ -62,7 +66,7 @@ static int output_print(game_t *game, display_turn_t * boolean)
     game->line = gnl_lines();
     if (game->line == NULL)
         return (42);
-    if (check_line(game->nb_lines - 2, my_atoi(game->line)) == 84) {
+    if (check_line(game->nb_lines - 2, my_atoi(game->line), game->line) == 84) {
         boolean->display = 1;
         return (84);
     }

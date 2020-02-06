@@ -20,5 +20,10 @@ void remove_matches(game_t *game, display_turn_t *boolean)
 
     for (int i = stick; i > 0; i--)
         game->map[line][last_stick - (i - 1)] = ' ';
+    my_putstr("Player removed ");
+    my_put_nbr(stick);
+    my_putstr(" match(es) from line ");
+    my_put_nbr(line);
+    my_putchar('\n');
     changing_turn(boolean);
 }

@@ -19,5 +19,6 @@ char *gnl_lines(void);
 char *gnl_matches(void);
 int player_gameloop(game_t *game, display_turn_t *boolean);
 void init_struct(game_t *game, display_turn_t *boolean);
+int ai_gameloop(game_t *game, display_turn_t *boolean);
 
 #endif /* !MAIN_H_ */

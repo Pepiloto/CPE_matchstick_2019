@@ -22,10 +22,13 @@ int main(int ac, char **av)
     if (create_board_game(&game) == 84)
         return (84);
     while (1) {
-        if (boolean.turn == 0)
-            game.victory = player_gameloop(&game, &boolean);
-        else
-            game.victory = player_gameloop(&game, &boolean);
+        if (boolean.turn == 0) {
+            if ((game.victory = player_gameloop(&game, &boolean)) == 42)
+                return (0);
+        } else {
+            if ((game.victory = ai_gameloop(&game, &boolean)) == 42)
+                return (0);
+        }
     }
     free_them_all(&game);
     return (0);

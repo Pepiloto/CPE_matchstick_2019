@@ -12,7 +12,7 @@
 int win(game_t *game, display_turn_t *boolean)
 {
     game->ending = 0;
-    for (int i = 0; game->map[i]; i++)
+    for (unsigned int i = 0; i < game->nb_lines; i++)
         for (int j = 0; game->map[i][j]; j++)
             if (game->map[i][j] == '|')
                 game->ending++;

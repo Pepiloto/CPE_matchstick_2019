@@ -24,6 +24,7 @@ SRC =	src/error.c				\
 		src/game.c				\
 		src/win.c				\
 		src/init_struct.c		\
+		src/ai_gameloop.c		\
 		src/main.c
 
 OBJ = $(SRC:.c=.o)

@@ -12,18 +12,24 @@
 int loop(game_t *game, display_turn_t *boolean)
 {
     while (1) {
-        if ((game->victory = player_gameloop(game, boolean)) == 42)
-            return (0);
-        if (game->victory == 1)
-            return (1);
-        if (game->victory == 2)
-            return (2);
-        if ((game->victory = ai_gameloop(game, boolean)) == 42)
-            return (0);
-        if (game->victory == 1)
-            return (1);
-        if (game->victory == 2)
-            return (2);
+        if (boolean->turn == 0) {
+            game->victory = player_gameloop(game, boolean);
+            if (game->victory == 42)
+                return (0);
+            if (game->victory == 1)
+                return (1);
+            if (game->victory == 2)
+                return (2);
+        }
+        else {
+            game->victory = ai_gameloop(game, boolean);
+            if (game->victory == 42)
+                return (0);
+            if (game->victory == 1)
+                return (1);
+            if (game->victory == 2)
+                return (2);
+        }
     }
 }
 

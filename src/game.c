@@ -48,12 +48,16 @@ static int check_line(unsigned int nb_lines, int line)
     return (0);
 }
 
-int player_gameloop(game_t *game, display_turn_t *boolean)
+static void display(game_t *game, display_turn_t *boolean)
 {
     if (boolean->display == 0) {
         print_map(game);
         my_putstr("Your turn:\n");
     }
+}
+
+static int output_print(game_t *game, display_turn_t * boolean)
+{
     my_putstr("Line: ");
     game->line = gnl_lines();
     if (game->line == NULL)
@@ -62,6 +66,19 @@ int player_gameloop(game_t *game, display_turn_t *boolean)
         boolean->display = 1;
         return (84);
     }
+    return (0);
+}
+
+int player_gameloop(game_t *game, display_turn_t *boolean)
+{
+    int output = 0;
+
+    display(game, boolean);
+    output = output_print(game, boolean);
+    if (output == 42)
+        return (42);
+    if (output == 84)
+        return (84);
     my_putstr("Matches: ");
     game->matches = gnl_matches();
     if (game->matches == NULL)

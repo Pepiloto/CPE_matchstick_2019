@@ -12,7 +12,7 @@ int my_atoi(char const *str)
     int t = 0;
 
     while ((str[n] && str[n] == ' ') || str[n] == '\t' || str[n] == '\n'
-           || str[n] == '\v' || str[n] == '\f' || str[n] == '\r')
+            || str[n] == '\v' || str[n] == '\f' || str[n] == '\r')
         n++;
     while (str[n] && (str[n] == '-' || str[n] == '+')) {
         if (str[n] == '-')

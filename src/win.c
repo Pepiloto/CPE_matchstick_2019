@@ -8,6 +8,7 @@
 #include "map.h"
 #include "display_turn.h"
 #include "my.h"
+#include "win.h"
 
 int win(game_t *game, display_turn_t *boolean)
 {
@@ -17,10 +18,12 @@ int win(game_t *game, display_turn_t *boolean)
             if (game->map[i][j] == '|')
                 game->ending++;
     if (game->ending == 0 && boolean->turn == 1) {
+        print_map(game);
         my_putstr("You lost, too bad...\n");
         return (2);
     }
     else if (game->ending == 0 && boolean->turn == 0) {
+        print_map(game);
         my_putstr("I lost... snif... but I'll get you next time!!\n");
         return (1);
     }

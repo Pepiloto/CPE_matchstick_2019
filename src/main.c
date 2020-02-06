@@ -47,12 +47,12 @@ int main(int ac, char **av)
     if (create_board_game(&game) == 84)
         return (84);
     finish = loop(&game, &boolean);
+    free_them_all(&game);
     if (finish == 1)
         return (1);
     if (finish == 2)
         return (2);
     if (finish == 0)
         return (0);
-    free_them_all(&game);
     return (0);
 }

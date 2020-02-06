@@ -6,6 +6,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "map.h"
 #include "game.h"
 
@@ -94,5 +95,7 @@ int player_gameloop(game_t *game, display_turn_t *boolean)
     }
     remove_matches(game, boolean);
     boolean->display = 0;
+    free(game->line);
+    free(game->matches);
     return (win(game, boolean));
 }

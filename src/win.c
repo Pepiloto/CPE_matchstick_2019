@@ -18,11 +18,11 @@ int win(game_t *game, display_turn_t *boolean)
                 game->ending++;
     if (game->ending == 0 && boolean->turn == 1) {
         my_putstr("You lost, too bad...\n");
-        return (1);
+        return (2);
     }
     else if (game->ending == 0 && boolean->turn == 0) {
         my_putstr("I lost... snif... but I'll get you next time!!\n");
-        return (2);
+        return (1);
     }
     else
         return (0);

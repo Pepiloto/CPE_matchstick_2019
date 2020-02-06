@@ -64,6 +64,8 @@ int player_gameloop(game_t *game, display_turn_t *boolean)
     }
     my_putstr("Matches: ");
     game->matches = gnl_matches();
+    if (game->matches == NULL)
+        return (42);
     if (check_stick(game->map[my_atoi(game->line)], my_atoi(game->matches),
         game->matches, game->max_remove) == 84) {
         boolean->display = 1;

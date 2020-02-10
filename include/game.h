@@ -37,5 +37,10 @@ static inline void put_error(int max)
     my_puterrstr(" matches per turn\n");
 }
 int win(game_t *game, display_turn_t *boolean);
+static inline void free_getline(char *line, char *matches)
+{
+    free(line);
+    free(matches);
+}
 
 #endif /* !GAME_H_ */

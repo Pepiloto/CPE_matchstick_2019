@@ -84,7 +84,6 @@ int player_gameloop(game_t *game, display_turn_t *boolean)
         return (42);
     if (output == 84)
         return (84);
-    my_putstr("Matches: ");
     game->matches = gnl_matches();
     if (game->matches == NULL)
         return (42);
@@ -95,7 +94,6 @@ int player_gameloop(game_t *game, display_turn_t *boolean)
     }
     remove_matches(game, boolean);
     boolean->display = 0;
-    free(game->line);
-    free(game->matches);
+    free_getline(game->line, game->matches);
     return (win(game, boolean));
 }

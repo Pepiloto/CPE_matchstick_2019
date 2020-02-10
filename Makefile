@@ -6,7 +6,7 @@
 ##
 
 ######### FLAGS #########
-CFLAGS	=	-Wall -Wextra -Werror -Wshadow -finline-functions
+CFLAGS	= -Wall -Wextra -Werror -Wshadow -finline-functions
 
 CPPFLAGS = -iquote $(IDIR)
 
@@ -15,8 +15,9 @@ DBGFLAGS = -g3 -ggdb
 LDFLAGS = -L lib/my -lmy
 
 ######### SOURCES #########
-SRC =	src/error.c				\
+SRC =	src/main.c				\
 		src/create_board_game.c	\
+		src/error.c				\
 		src/free_them_all.c		\
 		src/get_next_line.c		\
 		src/remove_match.c		\
@@ -24,8 +25,7 @@ SRC =	src/error.c				\
 		src/game.c				\
 		src/win.c				\
 		src/init_struct.c		\
-		src/ai_gameloop.c		\
-		src/main.c
+		src/ai_gameloop.c
 
 OBJ = $(SRC:.c=.o)
 

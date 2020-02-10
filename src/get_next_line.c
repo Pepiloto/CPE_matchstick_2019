@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "my.h"
 
 char *gnl_lines(void)
 {
@@ -23,6 +24,7 @@ char *gnl_matches(void)
     char *temp = NULL;
     size_t getnext = 0;
 
+    my_putstr("Matches: ");
     if (getline(&temp, &getnext, stdin) == -1)
         return (NULL);
     return (temp);
